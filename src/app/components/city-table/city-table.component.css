@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.action {
+    cursor: pointer;
+}
+
+.delete-action {
+    margin-left: 10px;
+}
+
+.request-error {
+    margin-top: 20px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

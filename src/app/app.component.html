@@ -1,0 +1,36 @@
+<mat-tab-group>
+    <mat-tab label="Estados">
+        <div class="main-container">
+            <mat-card class="request-error" *ngIf="errorMessage !== undefined">
+                <div>
+                    {{errorMessage}}
+                </div>
+            </mat-card>
+            <app-state-table *ngIf="errorMessage === undefined" class="table-component"
+                             (removeItemEvent)="reloadData()"
+                             (putItemEvent)="stateForm.putStateMode($event)"
+                             [stateData]="stateData"></app-state-table>
+            <app-state-form #stateForm (newItemEvent)="reloadData()"
+                            class="form-component"></app-state-form>
+        </div>
+    </mat-tab>
+    <mat-tab label="Cidades">
+        <div class="main-container">
+            <mat-card class="request-error" *ngIf="errorMessage !== undefined">
+                <div>
+                    {{errorMessage}}
+                </div>
+            </mat-card>
+            <app-city-table *ngIf="errorMessage === undefined" class="table-component"
+                             (removeItemEvent)="reloadData()"
+                             (putItemEvent)="cityForm.putCityMode($event)"
+                             [cityData]="cityData"></app-city-table>
+            <app-city-form #cityForm
+                           [stateData]="stateData"
+                           (newItemEvent)="reloadData()"
+                            class="form-component"></app-city-form>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+
+

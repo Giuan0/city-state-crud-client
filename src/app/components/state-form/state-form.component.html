@@ -1,0 +1,23 @@
+<mat-card class="main-container">
+    <form class="example-form" [formGroup]="stateForm"
+          (ngSubmit)="onSubmit(stateForm.value)">
+        <div class="input-fields-container">
+            <mat-form-field style="width: 180px" class="name-field" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input formControlName="name" matInput placeholder="Ex. Paraíba">
+            </mat-form-field>
+            <mat-form-field style="width: 180px" class="abbreviation-field" appearance="fill">
+                <mat-label>Abreviação</mat-label>
+                <input formControlName="abbreviation" matInput placeholder="Ex. PB">
+            </mat-form-field>
+        </div>
+        <div class="buttons-container">
+            <button type="reset" (click)="onCancel()" mat-button>Cancelar</button>
+            <button type="submit"
+                    [disabled]="!stateForm.valid" mat-button>{{isEditMode ? 'Atualizar' : 'Inserir' }}</button>
+        </div>
+    </form>
+    <div *ngIf="errorMessage!==undefined" class="request-error">
+        {{errorMessage}}
+    </div>
+</mat-card>
